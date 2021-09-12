@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-bytebank">
+    <nav class="navbar navbar-expand-lg navbar-bytebank mb-4">
       <a class="navbar-brand" href="#">ByteBank</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,16 +15,31 @@
               Gerentes
             </router-link>
           </li>
+          <li class="nav-item">
+              <a
+              href="#"
+              class="nav-link"
+              @click.prevent="efetuarLogout">Logout</a>
+          </li>
         </ul>
       </div>
     </nav>
     <router-view/>
   </div>
 </template>
-
+<script>
+    export default {
+        methods: {
+            efetuarLogout() {
+                localStorage.removeItem('token')
+                this.$router.push({name: 'login'})
+            }
+        }
+    }
+</script>
 <style>
 .navbar {
-  background: #27ae60;
+  background: #2791ae;
 }
 .navbar-bytebank a {
   color: #fff;
