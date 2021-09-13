@@ -15,12 +15,11 @@
 <script>
 import BarraNavegacaoLogadoMenu from './BarraNavegacaoLogadoMenu'
 import BarraNavegacaoDeslogadoMenu from './BarraNavegacaoDeslogadoMenu'
+import { mapGetters } from 'vuex'
 
 export default {
-    computed: {
-        usuarioEstaLogado() {
-            return Boolean(this.$store.state.token)
-        }
+    computed: { 
+      ...mapGetters(['usuarioEstaLogado'])
     },
     components: {
         'barra-navegacao-logado-menu': BarraNavegacaoLogadoMenu,
